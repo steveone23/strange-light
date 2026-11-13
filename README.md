@@ -4,4 +4,4 @@ Indonesian batik makers lean out of their boats and draw on the ocean itself wit
 
 ## How it was made
 
-The image was generated with `google/gemini-nano-banana-2.1` through OpenRouter from the `batiksea` prompt in `tools/prompts.json` (`tools/generate.py`). It was picked from the candidates by a pairwise proxy-judge pass, then fitted to the contest limits with `tools/fit.py`. `main.py` copies the committed `entry.png` to `/output/entry.png`.
+The image was generated with `google/gemini-nano-banana-2.1` through OpenRouter from the `batiksea2` prompt in `tools/prompts.json` (`tools/generate.py`). It replaced the first version, made from the `batiksea` prompt, after head-to-head proxy judging, then was fitted to the contest limits with `tools/fit.py`. `main.py` copies the committed `entry.png` to `/output/entry.png`.
