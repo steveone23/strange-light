@@ -13,7 +13,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-URL = "https://openrouter.ai/api/v1/images"
+URL = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").rstrip("/") + "/images"
 TIMEOUT = 240
 EXT = {"image/png": "png", "image/jpeg": "jpg", "image/jpg": "jpg", "image/webp": "webp"}
 
@@ -31,8 +31,16 @@ def post(key, body):
         raise RuntimeError(f"HTTP {e.code}: {e.read().decode(errors='replace')}") from None
 
 
-def generate(key, item, model, suffix=""):
+def data_url(path):
+    mime = {".png": "image/png", ".webp": "image/webp"}.get(os.path.splitext(path)[1].lower(), "image/jpeg")
+    with open(path, "rb") as f:
+        return f"data:{mime};base64,{base64.b64encode(f.read()).decode()}"
+
+
+def generate(key, item, model, suffix="", ref=None):
     body = {"model": model, "prompt": item["prompt"], "aspect_ratio": "1:1"}
+    if ref:
+        body["input_references"] = [{"type": "image_url", "image_url": {"url": ref}}]
     if model.startswith("openai/"):
         body["quality"] = "medium"
     else:
@@ -55,6 +63,9 @@ def main():
     parser.add_argument("models", nargs="+")
     parser.add_argument("--ids", help="comma-separated prompt ids (default: all)")
     parser.add_argument("--reps", type=int, default=1, help="images per prompt x model pair")
+    parser.add_argument("--ref", help="reference image for an image-to-image edit")
+    parser.add_argument("--workers", type=int, help="parallel requests (default: all at once)")
+    parser.add_argument("--tag", help="text appended to output file names")
     args = parser.parse_args()
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
@@ -68,11 +79,14 @@ def main():
             sys.exit(f"unknown prompt ids: {', '.join(sorted(unknown))}")
         prompts = [p for p in prompts if p["id"] in wanted]
     suffixes = [f"_r{i}" for i in range(1, args.reps + 1)] if args.reps > 1 else [""]
+    if args.tag:
+        suffixes = [s + "_" + args.tag for s in suffixes]
+    ref = data_url(args.ref) if args.ref else None
     os.makedirs(os.path.join(ROOT, "candidates"), exist_ok=True)
     jobs = [(p, m, s) for p in prompts for m in args.models for s in suffixes]
     total = 0.0
-    with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
-        futures = {pool.submit(generate, key, p, m, s): (p["id"] + s, m) for p, m, s in jobs}
+    with ThreadPoolExecutor(max_workers=args.workers or len(jobs)) as pool:
+        futures = {pool.submit(generate, key, p, m, s, ref): (p["id"] + s, m) for p, m, s in jobs}
         for fut in as_completed(futures):
             pid, model = futures[fut]
             try:

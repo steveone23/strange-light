@@ -38,5 +38,25 @@
   {
     "id": "songketdawn",
     "prompt": "A woman at a traditional wooden songket loom on a beach before sunrise. The warp threads of her loom are the first rays of the rising sun stretched taut from the horizon, and the cloth she weaves rolls off the loom as the morning sky itself, deep red and violet with glittering gold songket motifs, unrolling upward over her head. Strong silhouette of the loom and weaver against the blazing sunrise, bold warm palette, one clear focal point, cinematic and crafted. No text, no signature."
+  },
+  {
+    "id": "batikfix",
+    "prompt": "Edit this image. Keep the exact composition, camera angle, colours, the living sea on the left, the batik cloth on the right and every batik motif. Change only these: 1) Remove the glowing yellow neon outline along the curved boundary: the boundary must be a natural crisp edge where white sea foam meets the indigo cloth, like a line of fresh wax just drawn, with no glow and no gold line. 2) Redraw the boat as one clean traditional Indonesian jukung outrigger canoe: slim red wooden hull, two straight parallel bamboo crossbeams set perpendicular across the hull, each reaching a long straight bamboo float on both sides that runs parallel to the hull, symmetrical and physically correct, no stray sticks. 3) The batik maker in the boat leans out holding a small copper canting pen whose tip touches the boundary line, with a thin wisp of wax steam rising from the tip. No text, no signature."
+  },
+  {
+    "id": "batiksea3",
+    "prompt": "Top-down aerial view of the sea, split by one huge bold S-shaped curve running from the top edge to the bottom edge. Left of the curve: living deep-blue ocean with white foam and sunlight glitter. Right of the curve: the same sea turned into a finished hand-drawn batik cloth, indigo and cream, with large mega mendung cloud motifs, parang diagonals and fine wax crackle. The curve itself is a crisp natural edge where foam meets cloth, with no glow and no outline. Right on the curve, large in the frame, one Indonesian batik maker in a slim red jukung outrigger canoe (two straight parallel bamboo crossbeams perpendicular to the hull, a straight bamboo float on each side, symmetrical) leans out with a copper canting pen, drawing the wax line that turns the waves into cloth, a thin wisp of wax steam rising from the pen tip. Very few elements, strong contrast, one clear focal point that reads instantly at thumbnail size. No text, no signature."
+  },
+  {
+    "id": "boatfix",
+    "prompt": "Edit this image. Keep everything exactly as it is: the composition, camera angle, colours, the living sea on the left, the batik cloth on the right with every motif, and the thin glowing golden line along the curved boundary. Change only the boat: redraw it as one clean traditional Indonesian jukung outrigger canoe in the same place, at the same size and in the same red: a slim wooden hull, two straight parallel bamboo crossbeams set perpendicular across the hull, each reaching one long straight bamboo float on each side that runs parallel to the hull, symmetrical and physically correct, with no stray or crossing sticks. The batik maker sits in the boat and leans out holding a small copper canting pen whose tip touches the glowing boundary line, with a thin wisp of wax steam rising from the tip. No text, no signature."
+  },
+  {
+    "id": "boatclean",
+    "prompt": "Edit this image. Remove every bamboo pole, crossbeam and float around the boat completely, and fill those areas with the sea foam and water on the left and the batik cloth on the right exactly as they continue around them. The boat becomes one simple slim red wooden canoe with no outrigger at all, same place, same size, same red. The batik maker in it leans out over the glowing golden boundary line holding a small copper canting pen whose tip touches the line, with a thin wisp of wax steam rising from the tip. Keep everything else exactly as it is: composition, colours, the sea, every batik motif and the thin glowing golden line along the curve. No text, no signature."
+  },
+  {
+    "id": "batiksea4",
+    "prompt": "Top-down aerial view of the sea, split by one huge bold S-shaped curve running from the top edge to the bottom edge. Left of the curve: living deep-blue ocean with white foam and sunlight glitter. Right of the curve: the same sea turned into a finished hand-drawn batik cloth, deep indigo and cream, with large mega mendung cloud motifs and parang diagonals. The curve is traced by one thin glowing golden line of hot wax. Right on the curve, large in the frame, one Indonesian batik maker in a red jukung outrigger canoe leans out with a copper canting pen, drawing the glowing wax line that turns the waves into cloth, a thin wisp of wax steam rising from the pen tip. The outrigger is drawn correctly: two straight parallel bamboo crossbeams perpendicular to the hull, each ending in one long straight bamboo float parallel to the hull on each side, symmetrical. Very few elements, strong contrast, one clear focal point that reads instantly at thumbnail size. No text, no signature."
   }
 ]
